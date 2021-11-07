@@ -115,6 +115,10 @@ def metrics():
 if __name__ == "__main__":
 
     ## stream logs to app.log file
-    logging.basicConfig(filename='app.log',level=logging.DEBUG)
+    logging.basicConfig(handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+        ],
+        level=logging.DEBUG)
 
     app.run(host='0.0.0.0', port='3111')

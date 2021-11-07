@@ -1,8 +1,8 @@
 # Use a Python based image in verwsion 2.7
 From python:2.7
 
-COPY . ./TechTrends
-WORKDIR /TechTrends
+COPY . .
+WORKDIR /techtrends
 
 # Expose the application port 3111
 EXPOSE 3111
