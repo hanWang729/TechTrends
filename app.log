@@ -1,0 +1,3 @@
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:app:11/06/2021, 21:24:25 2020 CNCF Annual Report Article retrieved
+INFO:werkzeug:127.0.0.1 - - [06/Nov/2021 21:24:25] "GET /1 HTTP/1.1" 200 -
