@@ -1,41 +1,41 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  annotations:
   labels:
-    app: techtrends
-  name: techtrends
-  namespace: sandbox
+    app: {{ .Values.AppName }}
+  name: {{ .Values.AppName }}
+  namespace: {{ .Values.namespace.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: techtrends
+      app: {{ .Values.AppName }}
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: techtrends
+        app: {{ .Values.AppName }}
     spec:
       containers:
-      - image: hanwang729/techtrends:latest
-        name: techtredns
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: {{ .Values.AppName }}
         ports:
-        - containerPort: 3111
+        - containerPort: {{ .Values.ports.containerPort }}
+          protocol: {{ .Values.service.protocol }}
         livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 3111
+           httpGet:
+             path: {{ .Values.livenessProbe.path }}
+             port: {{ .Values.livenessProbe.port }}
         readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 3111
+           httpGet:
+             path: {{ .Values.readinessProbe.path }}
+             port: {{ .Values.readinessProbe.port }}
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "250m"
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
           limits:
-            memory: "128Mi"
-            cpu: "500m"
-status: {}
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.memory }}
