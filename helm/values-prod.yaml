@@ -3,11 +3,8 @@ namespace:
  
 service:
   port: 7111
-  type: ClusterIP
 
 image:
-  repository: hanwang729/techtrends 
-  tag: latest
   pullPolicy: Always
 
 replicaCount: 5

@@ -3,12 +3,6 @@ namespace:
  
 service:
   port: 5111
-  type: ClusterIP
-
-image:
-  repository: hanwang729/techtrends 
-  tag: latest
-  pullPolicy: IfNotPresent
 
 replicaCount: 3
 
