@@ -15,4 +15,4 @@ spec:
     path: helm
     repoURL: https://github.com/hanWang729/TechTrends.git
     targetRevision: HEAD
-
+  syncPolicy: {}
