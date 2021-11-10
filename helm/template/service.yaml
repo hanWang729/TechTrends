@@ -1,5 +1,5 @@
 ## Set the API endpoint used to create the Service resource.
-apiVersion: apps/v1
+apiVersion: v1
 ## Define the type of the resource.
 kind: Service
 ## Set the parameters that make the object identifiable, such as its name, namespace, and labels.
