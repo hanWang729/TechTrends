@@ -3,26 +3,26 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: {{ .Values.AppName }}
-  name: {{ .Values.AppName }}
+    app: techtrends
+  name: techtrends
   namespace: {{ .Values.namespace.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.AppName }}
+      app: techtrends
   strategy: {}
   template:
     metadata:
       labels:
-        app: {{ .Values.AppName }}
+        app: techtrends
     spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        name: {{ .Values.AppName }}
+        name: techtrends
         ports:
-        - containerPort: {{ .Values.ports.containerPort }}
+        - containerPort: 3111
           protocol: {{ .Values.service.protocol }}
         livenessProbe:
            httpGet:
