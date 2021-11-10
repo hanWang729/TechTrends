@@ -13,7 +13,7 @@ spec:
       valueFiles:
       - values-prod.yaml
     path: helm
-    repoURL: https://github.com/hanWang729/TechTrends.git
+    repoURL: https://github.com/hanWang729/TechTrends
     targetRevision: HEAD
   syncPolicy: {}
 
