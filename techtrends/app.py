@@ -5,6 +5,9 @@ from flask.globals import g
 from werkzeug.exceptions import abort
 import logging
 from datetime import datetime
+import sys
+
+from werkzeug.utils import format_string
 
 conn_counter = 0 # global variable for couting connection to the database
 post_counter = 0
@@ -114,11 +117,13 @@ def metrics():
 # start the application on port 3111
 if __name__ == "__main__":
 
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stderr_handler = logging.StreamHandler(sys.stderr)
+    handler = [stderr_handler, stdout_handler]
+    format_string = '%(levelname)s:%(name)s:%(asctime)s: %(message)s'
     ## stream logs to app.log file
-    logging.basicConfig(handlers=[
-        logging.FileHandler("app.log"),
-        logging.StreamHandler()
-        ],
+    logging.basicConfig(handlers=handler,
+        format=format_string,
         level=logging.DEBUG)
 
     app.run(host='0.0.0.0', port='3111')
