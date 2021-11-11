@@ -4,7 +4,6 @@ metadata:
   annotations:
   labels:
     app: {{ .Values.AppName }}
-    tag: {{ .Values.image.tag }}
   name: {{ .Values.AppName }}
   namespace: {{ .Values.namespace.name }}
 spec:
@@ -12,13 +11,11 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.AppName }}
-      tag: {{ .Values.image.tag }}
   strategy: {}
   template:
     metadata:
       labels:
         app: {{ .Values.AppName }}
-        tag: {{ .Values.image.tag }}
     spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
