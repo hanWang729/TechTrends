@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.AppName }}
+      tag: {{ .Values.image.tag }}
   strategy: {}
   template:
     metadata:
