@@ -27,11 +27,11 @@ spec:
         livenessProbe:
            httpGet:
              path: {{ .Values.livenessProbe.path }}
-             port: 3111
+             port: {{ .Values.livenessProbe.httpGet.port }}
         readinessProbe:
            httpGet:
              path: {{ .Values.readinessProbe.path }}
-             port: 3111
+             port: {{ .Values.readinessProbe.httpGet.port }}
         resources:
           requests:
             memory: {{ .Values.resources.requests.memory }}
