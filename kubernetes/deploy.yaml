@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - image: hanwang729/techtrends:latest
-        name: techtredns
+        name: techtrends
         ports:
         - containerPort: 3111
         livenessProbe:
